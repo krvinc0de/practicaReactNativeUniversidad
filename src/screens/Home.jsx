@@ -1,36 +1,44 @@
 //import liraries
 import React, { Component, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity,  } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
 // create a component
 const Home = () => {
 
-    const [entry, setEntry] = useState(null);
-    const [final, setFinal] = useState(null);
-
-    const convert = (num) => {
-
-        return num * 3.2808;
-    };
-
     return (
         <View style={styles.container}>
-            <Text style={styles.titulo}>Metros a pies</Text>
-            <Text style={styles.subtitulo}>Ingrese los metros a convertir</Text>
-            <TextInput
-            keyboardType='numeric'
-                style={styles.inputEntry}
-                placeholder='ingrese a metros'
-            />
-            <TouchableOpacity style={styles.boton}>
-                <Text>Convertir</Text>
-            </TouchableOpacity>
-            <Text style={styles.subtitulo}>Resultado de metros a pies</Text>
-            <TextInput 
-                style={styles.inputEntry}
-                placeholder='Conversion'
-            />
-            
+            <ScrollView>
+                <Text style={styles.titulo}>Menu de funciones</Text>
+                <View style={styles.contenedorBoton}>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Metros a pies</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Factorial de un numero</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.contenedorBoton}>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Grados centigrados a celsius</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Numero N</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.contenedorBoton}>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Numero de la suerte</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>dos</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.contenedorBoton}>
+                    <TouchableOpacity style={styles.boton}>
+                        <Text>Precio final de una venta</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         </View>
     );
 };
@@ -43,21 +51,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     titulo: {
-        color: "#000",
-        fontSize: 20
+        fontSize: 40,
+        color: '#000',
+        fontWeight: '600'
     },
-    subtitulo: {
-        color: "#000",
-        fontSize: 15
-    },
-    inputEntry: {
-        borderColor: '#000',
-        borderWidth: 1
+    contenedorBoton: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginTop: 20
     },
     boton: {
-        backgroundColor: 'grey'
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'grey',
+        borderRadius: 10,
+        padding: 5,
+        width: '45%',
+        height: 100
     }
-
 });
 
 //make this component available to the app
