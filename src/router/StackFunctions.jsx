@@ -15,7 +15,11 @@ function StackFunction(){
         <Stack.Navigator
             initialRouteName="home"
         >
-            <Stack.Screen name="home" component={Home} />
+            <Stack.Screen name="home" component={Home} 
+                options={{
+                    headerShown: false
+                }}
+            />
             <Stack.Screen name="curp" component={CalcularCurp} />
             <Stack.Screen name="factorial" component={Factorial} />
             <Stack.Screen name="grados" component={GradosCC} />
