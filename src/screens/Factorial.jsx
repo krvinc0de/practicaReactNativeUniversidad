@@ -1,12 +1,54 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { Component, useState } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 // create a component
 const Factorial = () => {
+
+    const [num, setNum] = useState();
+    const [factorial, setFactorial] = useState();
+
+    const factorialNumero = () =>{
+        let numero = num
+        if (numero === 0 || numero === 1) {
+            setFactorial(1)
+          }
+          for (var i = numero - 1; i >= 1; i--) {
+            numero *= i;
+          }
+          setFactorial(numero)
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Factorial</Text>
+            <Text>Factorial de un numero</Text>
+            <View>
+                <Text>Ingrese el numero a calcular</Text>
+                <View>
+                    <TextInput 
+                        keyboardType='numeric'
+                        inputMode='decimal'
+                        placeholder='ingrese numero'
+                        multiline={true}
+                        onChangeText={(value)=>{
+                            setNum(value)
+                        }}
+                    />
+                </View>
+                <TouchableOpacity
+                    onPress={factorialNumero}
+                >
+                    <Text>Calcular factorial</Text>
+                </TouchableOpacity>
+                {
+                    factorial === undefined || isNaN(factorial) ? (<View />) : (
+                        <TextInput 
+                            multiline={true}
+                            value={factorial.toString()}
+                        />
+                    )
+                }
+            </View>
         </View>
     );
 };
@@ -15,9 +57,8 @@ const Factorial = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#fff',
     },
 });
 
